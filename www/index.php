@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>LAMP STACK</title>
-        <link rel="stylesheet" href="/assets/css/bulma.min.css">
-    </head>
-    <body>
-        <section class="hero is-medium is-info is-bold">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title">
-                        LAMP STACK
-                    </h1>
-                    <h2 class="subtitle">
-                        Your local development environment
-                    </h2>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Environment</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><?= apache_get_version(); ?></li>
-                                <li>PHP <?= phpversion(); ?></li>
-                                <li>
-                                    <?php
-                                    $link = mysqli_connect("database", "root", $_ENV['MYSQL_ROOT_PASSWORD'], null);
 
-/* check connection */
-                                    if (mysqli_connect_errno()) {
-                                        printf("MySQL connecttion failed: %s", mysqli_connect_error());
-                                    } else {
-                                        /* print server version */
-                                        printf("MySQL Server %s", mysqli_get_server_info($link));
-                                    }
-                                    /* close connection */
-                                    mysqli_close($link);
-                                    ?>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Quick Links</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><a href="/phpinfo.php">phpinfo()</a></li>
-                                <li><a href="http://localhost:<? print $_ENV['PMA_PORT']; ?>">phpMyAdmin</a></li>
-                                <li><a href="/test_db.php">Test DB Connection with mysqli</a></li>
-                                <li><a href="/test_db_pdo.php">Test DB Connection with PDO</a></li>
-                            </ul>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/bootstrap.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Connexion</title>
+</head>
+
+<body>
+    <div class="mt-4 container">
+        <div class="row justify-content-md-center mt-5">
+            <h1 class="text-center mb-5">PetitChat, David TCHILIAN</h1>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Se connecter</div>
+                    <div class="card-body">
+                        <form method="post" id="login_form" action="controleurs/connexion.php">
+                            <div class="form-group">
+                                <label>Entrez votre pseudo</label>
+                                <input type="text" name="pseudo" id="user_email" class="form-control" data-parsley-type="email" required />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Entrez votre mot de passe</label>
+                                <input type="password" name="mdp" id="user_password" class="form-control" required />
+                            </div>
+                            <div class="form-group text-center">
+                                <input type="submit" name="login" id="login" class="btn btn-primary" value="Login" style="width: 70px;"/>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-    </body>
+        </div>
+        <form action="./vues/inscription.php" class="text-center mt-4">
+            <input type="submit" value="Inscription" class="btn btn-success" style="width: 100px;">
+        </form>
+    </div>
+    <div class="container mt-5">
+        <?php
+        if (isset($_GET['err'])) {
+            switch ($_GET['err']) {
+                case '1':
+                    echo '<div class="alert alert-danger" role="alert">
+                    Mauvais Identifiant !
+                  </div>';
+                    break;
+                case '2':
+                    echo '<div class="alert alert-danger" role="alert">
+                    Probleme de requete sur la base de données !
+                  </div>';
+                    break;
+                case '3':
+                    echo '<div class="alert alert-danger" role="alert">
+                    Vous n\'êtes pas connecté !
+                  </div>';
+                case '4':
+                    echo '<div class="alert alert-success" role="alert">
+                    Votre compte a été créé !
+                  </div>';
+                default:
+                    // code...
+                    // au cas ou on veut mettre un autre message d'erreur ou quoi
+                    break;
+            }
+        }
+        ?>
+    </div>
+</body>
+
+
 </html>

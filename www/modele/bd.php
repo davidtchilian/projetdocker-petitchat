@@ -14,8 +14,5 @@ class Bd {
 
 		return $this->co;
 	}
-	function deconnexion($co) {
-		mysqli_close($co);	
-	}
 }
 ?>

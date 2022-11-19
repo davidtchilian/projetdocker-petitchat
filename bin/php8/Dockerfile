@@ -78,7 +78,18 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install mbstring && \
     docker-php-ext-install gettext && \
     docker-php-ext-install calendar && \
-    docker-php-ext-install exif
+    docker-php-ext-install exif && \
+    docker-php-ext-install pgsql
+
+RUN apt-get update && \
+    apt-get install -y libpq-dev && \
+    docker-php-ext-install pdo_pgsql
+
+RUN apt-get install php-pgsql
+
+# install pdo
+RUN docker-php-ext-install pdo
+
 
 
 # Install Freetype 

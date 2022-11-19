@@ -1,15 +1,15 @@
 <?php
 
-$DBuser = 'root';
-$DBpass = $_ENV['MYSQL_ROOT_PASSWORD'];
+$DBuser = 'docker';
+$DBpass = $_ENV['POSTGRES_ROOT_PASSWORD'];
 $pdo = null;
 
 try{
-    $database = 'mysql:host=database:3306';
+    $database = 'postgres:host=database:5432';
     $pdo = new PDO($database, $DBuser, $DBpass);
-    echo "Success: A proper connection to MySQL was made! The docker database is great.";    
+    echo "Success: A proper connection to postgres was made! The docker database is great.";    
 } catch(PDOException $e) {
-    echo "Error: Unable to connect to MySQL. Error:\n $e";
+    echo "Error: Unable to connect to postgres. Error:\n $e";
 }
 
 $pdo = null;

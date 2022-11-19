@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS petitchat;
 CREATE DATABASE petitchat;
-USE petitchat;
+\c petitchat;
 
 CREATE TABLE membres(
     membres_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
