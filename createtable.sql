@@ -29,8 +29,8 @@ CREATE TABLE estDansChatRoom(
 );
 
 INSERT INTO membres (membres_pseudo, membres_mdp) VALUES
-('theo', 'theo'),
-('david', 'david');
+('theo', '7938414aed691e4bf32edcad0d7df0c6'),
+('david', '172522ec1028ab781d9dfd17eaca4427');
 
 INSERT INTO chatroom (nom) VALUES
 ('theo et david');
@@ -44,3 +44,11 @@ INSERT INTO messages (membres_id, messages_contenu, chatroom_id) VALUES
 (1, 'Bonjour Theo', 1);
 
 ALTER TABLE `estdanschatroom` ADD UNIQUE(`membres_id`, `chatroom_id`);
+
+CREATE USER david WITH PASSWORD 'david';
+GRANT ALL PRIVILEGES ON DATABASE petitchat TO david;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO david;
+GRANT ALL PRIVILEGES ON TABLE estdanschatroom TO david;
+GRANT ALL PRIVILEGES ON TABLE membres TO david;
+GRANT ALL PRIVILEGES ON TABLE chatroom TO david;
+GRANT ALL PRIVILEGES ON TABLE messages TO david;

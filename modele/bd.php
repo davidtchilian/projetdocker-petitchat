@@ -6,11 +6,11 @@ class Bd {
 	}
 	function connexion() {
 		$host = "localhost";
-		$user = "root";
-		$passwd = "";
+		$user = "david";
+		$passwd = "david";
 		$bdd = "petitchat";
 
-		$this->co = mysqli_connect($host , $user , $passwd, $bdd) or die("erreur de connexion");
+		$this->co = pg_connect("host=$host dbname=$bdd user=$user password=$passwd");
 
 		return $this->co;
 	}

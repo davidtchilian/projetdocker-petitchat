@@ -20,8 +20,8 @@ require("../modele/bd.php");
 $bd = new Bd();
 $co = $bd->connexion();
 $sql = "SELECT DISTINCT membres_id FROM estdanschatroom WHERE chatroom_id = $idchatroom AND membres_id = $id";
-$res  = mysqli_query($co, $sql);
-if (mysqli_num_rows($res) > 0) {
+$res  = pg_query($co, $sql);
+if (pg_numrows($res) > 0) {
 	$name = $_SESSION['pseudo'];
 } else {
 	header('Location: ./espace_membre.php?err=1');
@@ -63,9 +63,9 @@ if (mysqli_num_rows($res) > 0) {
 				<a href="" style="float: right;"></a>
 				<?php
 
-				$result  = mysqli_query($co, "SELECT membres_id, messages_contenu, messages_id 
+				$result  = pg_query($co, "SELECT membres_id, messages_contenu, messages_id 
 											  FROM messages WHERE chatroom_id = $idchatroom ORDER BY messages_id");
-				while ($row = mysqli_fetch_array($result)) {
+				while ($row = pg_fetch_array($result)) {
 					if ($row[0] == $_SESSION['id']) {
 						echo "<button type='button' class='btn btn-success btnright'>";
 						echo "$row[1]";
@@ -76,7 +76,6 @@ if (mysqli_num_rows($res) > 0) {
 						echo "</button><br><br>";
 					}
 				}
-				mysqli_close($co);
 				?>
 			</div>
 		</div>

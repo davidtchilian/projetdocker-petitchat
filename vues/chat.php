@@ -42,8 +42,9 @@
 				require_once("../modele/bd.php");
 				$bd = new Bd();
 				$co = $bd->connexion();
-				$result  = mysqli_query($co, "SELECT membres_id, messages_contenu, messages_id FROM messages ORDER BY messages_id");
-				while ($row = mysqli_fetch_array($result)) {
+				$sql = "SELECT membres_id, messages_contenu, messages_id FROM messages ORDER BY messages_id";
+				$result = pg_query($co, $sql);
+				while ($row = pg_fetch_row($result)) {
 					if ($row[0] == $_SESSION['id']) {
 						echo "<button type='button' class='btn btn-success' style='float: right;'>";
 						// echo "<p class='moi'>";
