@@ -1,31 +1,31 @@
 DROP DATABASE IF EXISTS petitchat;
 CREATE DATABASE petitchat;
-USE petitchat;
+\c petitchat;
 
 CREATE TABLE membres(
-    membres_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    membres_pseudo VARCHAR(30) UNIQUE,
-    membres_mdp VARCHAR(30)
+    membres_id SERIAL PRIMARY KEY NOT NULL ,
+    membres_pseudo TEXT UNIQUE,
+    membres_mdp TEXT
 );
 
 CREATE TABLE chatroom(
-    chatroom_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    nom VARCHAR(30)
+    chatroom_id SERIAL PRIMARY KEY NOT NULL,
+    nom TEXT
 );
 
 CREATE TABLE messages(
-    messages_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    membres_id INTEGER, -- Destinataire
-    chatroom_id INTEGER,-- Destination
-    messages_contenu LONGTEXT,
+    messages_id SERIAL PRIMARY KEY NOT NULL,
+    membres_id INT, -- Destinataire
+    chatroom_id INT,-- Destination
+    messages_contenu TEXT,
     FOREIGN KEY (membres_id) REFERENCES membres(membres_id),
     FOREIGN KEY (chatroom_id) REFERENCES chatroom(chatroom_id)
 );
 
 CREATE TABLE estDansChatRoom(
-    estDansChatRoom_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    membres_id INTEGER,
-    chatroom_id INTEGER
+    estDansChatRoom_id SERIAL PRIMARY KEY NOT NULL,
+    membres_id INT,
+    chatroom_id INT
 );
 
 INSERT INTO membres (membres_pseudo, membres_mdp) VALUES
@@ -43,4 +43,4 @@ INSERT INTO messages (membres_id, messages_contenu, chatroom_id) VALUES
 (2, 'Bonjour David', 1),
 (1, 'Bonjour Theo', 1);
 
-ALTER TABLE `estdanschatroom` ADD UNIQUE(`membres_id`, `chatroom_id`);
+ALTER TABLE estdanschatroom ADD UNIQUE(membres_id, chatroom_id);
