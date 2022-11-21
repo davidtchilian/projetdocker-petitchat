@@ -4,13 +4,11 @@
 ?>
 <?php
 class Membre {
-	public $co;
 	public $id;
 	public $pseudo;
 	public $motdepasse;
 
-	function __construct($co,$pseudo,$motdepasse, $id) {
-		$this->co=$co;
+	function __construct($pseudo,$motdepasse, $id) {
 		$this->pseudo=$pseudo;
 		$this->motdepasse=$motdepasse;
 		$this->id=$id;
@@ -25,11 +23,6 @@ class Membre {
 	public function modif_mdepasse($motdepasse) {
 		mysqli_query($this->co,"UPDATE membres SET membres_mdp='".$motdepasse."' WHERE membres_pseudo='".$this->pseudo."' AND membres_mdp='".$this->motdepasse."'");
 		$this->motdepasse=$motdepasse;
-	}
-	public function deconnexion() {
-		// $bd= new Bd();
-		// $bd->deconnexion($this->co);
-		mysqli_close($this->co);
 	}
 }
 ?>

@@ -12,16 +12,14 @@ if (!isset($_SESSION['id'])) {
 if (!isset($_GET['roomid'])) {
 	header('Location: ./espace_membre.php?err=1');
 } else {
-	// ICI que ca crash <-----------------------------------------------
 	$idchatroom = $_GET['roomid'];
 }
 
 require("../modele/bd.php");
-$bd = new Bd();
-$co = $bd->connexion();
 $sql = "SELECT DISTINCT membres_id FROM estdanschatroom WHERE chatroom_id = $idchatroom AND membres_id = $id";
 $res  = pg_query($co, $sql);
-if (pg_numrows($res) > 0) {
+$row = pg_fetch_row($res);
+if (count($row) > 0) {
 	$name = $_SESSION['pseudo'];
 } else {
 	header('Location: ./espace_membre.php?err=1');

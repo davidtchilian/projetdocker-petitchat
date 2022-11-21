@@ -28,8 +28,6 @@ if (!isset($_SESSION['id'])) {
 		
 		<?php
 			require("../modele/bd.php");
-			$bd = new Bd();
-			$co = $bd->connexion();
 			$result  = pg_query($co, "SELECT membres_id, chatroom_id, nom FROM estdanschatroom NATURAL JOIN chatroom WHERE membres_id = $id");
 			while ($row = pg_fetch_row($result)) {
 				$nom = $row[2];

@@ -1,18 +1,11 @@
 <?php 
-class Bd {
-	private $co;
-	function getCo() {
-		return $this->co;
-	}
-	function connexion() {
-		$host = "localhost";
-		$user = "david";
-		$passwd = "david";
-		$bdd = "petitchat";
 
-		$this->co = pg_connect("host=$host dbname=$bdd user=$user password=$passwd");
+	$host = "database";
+	$user = "docker";
+	$passwd = "docker";
+	$bdd = "petitchat";
+	$port = "5432";
 
-		return $this->co;
-	}
-}
+	$co = pg_connect("host=$host dbname=$bdd user=$user password=$passwd port=$port");
+
 ?>
