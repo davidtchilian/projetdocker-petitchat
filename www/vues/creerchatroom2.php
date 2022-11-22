@@ -7,27 +7,23 @@ $nomchatroom = $_POST['nomchatroom'];
 
 
 require("../modele/bd.php");
-$bd = new Bd();
-$co = $bd->connexion();
 
 $sqlchatroom = "SELECT nom FROM chatroom WHERE nom = '$nomchatroom'";
-$result  = mysqli_query($co, $sqlchatroom);
-if (mysqli_num_rows($result) > 0) {
+$result  = pg_query($co, $sqlchatroom);
+$row = pg_fetch_row($result);
+
+if ($row) {
 	header('Location: ./creerchatroom1.php?err=1');
 }
 
 
-
 $sql = "SELECT membres_id, membres_pseudo FROM membres";
-$res  = mysqli_query($co, $sql);
-$users = NULL;
-while ($row = mysqli_fetch_array($res, MYSQLI_NUM)) {
+$res  = pg_query($co, $sql);
+$users = array();
+while ($row = pg_fetch_array($res)) {
     $users[] = $row;
 }
-// $users[i][0] id membre
-// $users[i][1] pseudo membre
 
-// var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
