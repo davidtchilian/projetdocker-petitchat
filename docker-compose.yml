@@ -11,6 +11,7 @@ services:
       - "127.0.0.1:443:443"
     links:
       - database
+      - redis
     volumes:
       - ${DOCUMENT_ROOT-./www}:/var/www/html:rw
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
@@ -34,10 +35,9 @@ services:
     ports:
       - '127.0.0.1:5432:5432'
     volumes:
-      - "./pgsql-scripts:/docker-entrypoint-initdb.d"
-  
+      - "./pgsql-scripts:/docker-entrypoint-initdb.d"  
   redis:
     container_name: "${COMPOSE_PROJECT_NAME}-redis"
     image: redis:latest
     ports:
-      - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
+      - "${HOST_MACHINE_REDIS_PORT}:6379"
