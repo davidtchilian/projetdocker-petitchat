@@ -5,6 +5,7 @@ if (!isset($_SESSION['id'])) {
 }else {
 	$id = $_SESSION['id'];
 }
+require_once("../modele/redis.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,6 +24,8 @@ if (!isset($_SESSION['id'])) {
 	<div class="mt-4 container">
 		<div class="container-fluid text-center">
 			<h1>Bienvenue dans votre espace membre !</h1>
+			<p>Vous êtes connecté en tant que <?php echo $_SESSION['pseudo']; ?></p>
+			<p>Vous vous êtes connectés <?php echo $redis->get($_SESSION['pseudo']); ?> fois en tout !</p>
 		Vous pouvez : </br>
 		<!-- <input class="btn" type="button" value="Modifier votre mot-de-passe"> -->
 		

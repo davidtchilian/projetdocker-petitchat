@@ -20,6 +20,7 @@ services:
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
     environment:
       APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html}
+      REDIS_HOST_PASSWORD: ${REDIS_PASSWORD}
     extra_hosts:
       - "host.docker.internal:host-gateway"
   database:
@@ -39,5 +40,9 @@ services:
   redis:
     container_name: "${COMPOSE_PROJECT_NAME}-redis"
     image: redis:latest
+    restart: always
     ports:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
+    volumes:
+      - "./data/redis:/data"
+    command: redis-server --requirepass ${REDIS_PASSWORD}

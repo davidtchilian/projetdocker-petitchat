@@ -13,6 +13,8 @@
 	if (count($row) == 1) {
 		$user=new Membre($_POST['pseudo'],$_POST['mdp'], $row[0]);
 		$user->connexion();
+		require_once("../modele/redis.php");
+		$redis->incr($user->getPseudo());
 		header('Location: ../vues/espace_membre.php');
 		exit(1);
 

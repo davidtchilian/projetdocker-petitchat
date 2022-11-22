@@ -24,5 +24,8 @@ class Membre {
 		mysqli_query($this->co,"UPDATE membres SET membres_mdp='".$motdepasse."' WHERE membres_pseudo='".$this->pseudo."' AND membres_mdp='".$this->motdepasse."'");
 		$this->motdepasse=$motdepasse;
 	}
+	public function getPseudo() {
+		return $this->pseudo;
+	}
 }
 ?>
