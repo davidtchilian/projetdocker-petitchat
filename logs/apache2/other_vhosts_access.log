@@ -176,3 +176,4 @@ localhost:80 172.18.0.1 - - [22/Nov/2022:20:38:03 +0000] "POST /controleurs/deco
 localhost:80 172.18.0.1 - - [22/Nov/2022:20:38:03 +0000] "GET /index.php HTTP/1.1" 200 952 "http://localhost/vues/chatt.php?roomid=34" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
 localhost:80 172.18.0.1 - - [22/Nov/2022:20:38:03 +0000] "GET /style/style.css HTTP/1.1" 304 179 "http://localhost/index.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
 localhost:80 172.18.0.1 - - [22/Nov/2022:20:38:48 +0000] "-" 408 0 "-" "-"
+localhost:80 172.18.0.1 - - [22/Nov/2022:21:24:44 +0000] "GET /test_redis.php HTTP/1.1" 200 468 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0"

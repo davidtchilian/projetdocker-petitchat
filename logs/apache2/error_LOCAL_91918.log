@@ -95,15 +95,3 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.4. Set the 'ServerName' directive globally to suppress this message
 [Tue Nov 22 20:21:10.857854 2022] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/8.1.12 OpenSSL/1.1.1n configured -- resuming normal operations
 [Tue Nov 22 20:21:10.857918 2022] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
-AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.4. Set the 'ServerName' directive globally to suppress this message
-[Tue Nov 22 21:24:28.266733 2022] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/8.1.12 OpenSSL/1.1.1n configured -- resuming normal operations
-[Tue Nov 22 21:24:28.266801 2022] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
-[Tue Nov 22 21:27:48.947378 2022] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
-AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.4. Set the 'ServerName' directive globally to suppress this message
-[Tue Nov 22 21:33:53.008433 2022] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/8.1.12 OpenSSL/1.1.1n configured -- resuming normal operations
-[Tue Nov 22 21:33:53.008513 2022] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
-[Tue Nov 22 21:34:28.866610 2022] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
-AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.4. Set the 'ServerName' directive globally to suppress this message
-[Tue Nov 22 21:34:41.963644 2022] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/8.1.12 OpenSSL/1.1.1n configured -- resuming normal operations
-[Tue Nov 22 21:34:41.963696 2022] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
-[Tue Nov 22 21:34:56.264411 2022] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully

@@ -33,7 +33,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install redis
-RUN pecl install redis-5.3.3 && \
+RUN pecl install redis && \
     docker-php-ext-enable redis
 
 # Install imagick
