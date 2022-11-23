@@ -13,7 +13,7 @@
 <body>
     <div class="mt-4 container">
         <div class="row justify-content-md-center mt-5">
-            <h1 class="text-center mb-5">PetitChat, David TCHILIAN</h1>
+            <h1 class="text-center mb-5">PetitChat</h1>
 
             <div class="col-md-4">
                 <div class="card">
