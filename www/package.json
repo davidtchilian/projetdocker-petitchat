@@ -1,6 +1,11 @@
 {
+  "name": "websockets",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node serverws.mjs"
+  },
   "dependencies": {
     "websockets": "^0.2.0",
-    "ws": "^8.4.2"
+    "ws": "^8.11.0"
   }
 }
