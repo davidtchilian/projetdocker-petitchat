@@ -2,11 +2,14 @@ version: "3"
 
 services:
   webserver:
-    image: frediouquoi/petitchat-webserver
+    stdin_open: true
+    build:
+      context: ./bin/${PHPVERSION}
+    container_name: "${COMPOSE_PROJECT_NAME}-${PHPVERSION}"
     restart: "always"
     ports:
-      - "80:80"
-      - "443:443"
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
     links:
       - database
       - redis
