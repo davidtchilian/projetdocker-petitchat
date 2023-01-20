@@ -1,5 +1,5 @@
 <?php
-    $message = addslashes($_POST['message']);
+    $message = htmlspecialchars($_POST['message']);
     $id = $_POST['id'];
 	$idroom = $_POST['roomid'];
     require_once("../modele/membre.php");
